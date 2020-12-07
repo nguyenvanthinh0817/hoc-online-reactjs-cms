@@ -114,6 +114,8 @@ function ModalDetail(props) {
     data.lessons = newLessons;
     data.users = newUsers;
 
+    delete data._id;
+
     if (access === 'ADD') {
       RestfulUtils.post('http://localhost:3030/courses', { ...data })
         .then((res) => {
@@ -301,8 +303,8 @@ function ModalDetail(props) {
                         //maxLength={255}
                         className='form-control'
                         // placeholder={'Mô tả'}
-                        rows="4"
-                         id='txtPrice'
+                        rows='4'
+                        id='txtPrice'
                         value={dataGroup.description}
                         onChange={(e) => onChange('description', e)}
                       />

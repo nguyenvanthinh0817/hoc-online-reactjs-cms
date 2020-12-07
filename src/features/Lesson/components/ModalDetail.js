@@ -48,6 +48,7 @@ function ModalDetail(props) {
     const data = {
       ...dataGroup,
     };
+    delete data._id;
 
     if (access === 'ADD') {
       RestfulUtils.post('http://localhost:3030/lessons', { ...data })
