@@ -30,9 +30,10 @@ function CoursesTable(props) {
     feedData();
   }, [loadgrid]);
 
-  
   const feedData = () => {
-    RestfulUtils.get('http://localhost:3030/courses?[$populate]=lessons&[$populate]=users').then((res) => {
+    RestfulUtils.get(
+      'http://localhost:3030/courses?[$populate]=lessons&[$populate]=users'
+    ).then((res) => {
       if (res.status == 200) {
         setData(res.data.data);
         setTotal(res.data.total);
@@ -127,12 +128,27 @@ function CoursesTable(props) {
                 matchSorter(rows, filter.value, { keys: ['teacher'] }),
               filterAll: true,
             },
+
+            {
+              Header: (
+                <div className='wordwrap' id='lblTeacher'>
+                  Tổng số bài học
+                </div>
+              ),
+              id: 'totalLesson',
+              width: 150,
+              accessor: 'totalLesson',
+              filterMethod: (filter, rows) =>
+                matchSorter(rows, filter.value, { keys: ['totalLesson'] }),
+              filterAll: true,
+            },
             {
               Header: (
                 <div className='wordwrap' id='lblPrice'>
                   Giá cả
                 </div>
               ),
+              width: 200,
               id: 'price',
               accessor: 'price',
               filterMethod: (filter, rows) =>
@@ -142,8 +158,9 @@ function CoursesTable(props) {
             {
               Header: 'Status',
               id: 'status',
+              width: 200,
               accessor: 'status',
-              Cell: ({ value }) => (value ? 'Active' : 'Blook'),
+              Cell: ({ value }) => (value ? 'Hoạt động' : 'Khoá'),
               filterMethod: (filter, row) => {
                 if (filter.value === 'all') {
                   return true;
@@ -168,7 +185,7 @@ function CoursesTable(props) {
             {
               Header: 'Xóa',
               id: '_id',
-
+              width: 100,
               Cell: (row) => (
                 <div style={{ textAlign: 'center', color: 'red' }}>
                   <span onClick={() => handleDelete(row)} className=''>

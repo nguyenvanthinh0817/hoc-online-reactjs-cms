@@ -22,7 +22,7 @@ function ModalDetail(props) {
     title: '',
     url: '',
     priority: '',
-    status: false,
+    status: true,
   });
 
   useEffect(() => {
@@ -125,7 +125,7 @@ function ModalDetail(props) {
                 >
                   <div className='col-md-12 row'>
                     <div className='col-md-12'>
-                      <h5 className=''>
+                      <h5 className='highlight'>
                         <b>{`Bạn có chắc chắn muốn xóa ${dataGroup.title}`}</b>
                       </h5>
                     </div>

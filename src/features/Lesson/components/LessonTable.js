@@ -135,6 +135,7 @@ function LessonTable(props) {
                   Thứ tự
                 </div>
               ),
+              width: 100,
               id: 'priority',
               accessor: 'priority',
               filterMethod: (filter, rows) =>
@@ -145,8 +146,9 @@ function LessonTable(props) {
             {
               Header: 'Status',
               id: 'status',
+              width: 200,
               accessor: 'status',
-              Cell: ({ value }) => (value ? 'Active' : 'Blook'),
+              Cell: ({ value }) => (value ? 'Hoạt động' : 'Khoá'),
               filterMethod: (filter, row) => {
                 if (filter.value === 'all') {
                   return true;
@@ -171,7 +173,7 @@ function LessonTable(props) {
             {
               Header: 'Xóa',
               id: '_id',
-
+              width: 100,
               Cell: (row) => (
                 <div style={{ textAlign: 'center', color: 'red' }}>
                   <span onClick={() => handleDelete(row)} className=''>

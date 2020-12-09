@@ -23,7 +23,7 @@ function ModalDetail(props) {
     username: '',
     coin: '',
     role: 1,
-    status: false,
+    status: true,
   });
 
   useEffect(() => {
@@ -132,11 +132,11 @@ function ModalDetail(props) {
                 >
                   <div className='col-md-12 row'>
                     <div className='col-md-12'>
-                      <h5 className=''>
+                      <h5 className='highlight'>
                         <b>{`Bạn có chắc chắn muốn xóa ${dataGroup.name}`}</b>
                       </h5>
                     </div>
-                  </div>
+                  </div>  
 
                   <div className='col-md-12 row'>
                     <div className='pull-right'>

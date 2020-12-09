@@ -98,6 +98,9 @@ function ModalDetail(props) {
       ...dataGroup,
     };
 
+    const totalLesson = data.lessons.length;
+
+    data.totalLesson = totalLesson;
     const newUsers = data.users
       .filter((item) => {
         console.log(!transactionSelect(subUsers).includes(item));
@@ -202,7 +205,7 @@ function ModalDetail(props) {
                 >
                   <div className='col-md-12 row'>
                     <div className='col-md-12'>
-                      <h5 className=''>
+                      <h5 className='highlight'>
                         <b>{`Bạn có chắc chắn muốn xóa ${dataGroup.title}`}</b>
                       </h5>
                     </div>
@@ -311,7 +314,10 @@ function ModalDetail(props) {
                     </div>
                   </div>
 
-                  <div className='col-md-12 row'>
+                  <div
+                    className='col-md-12 row'
+                    style={{ display: access == 'ADD' ? 'none' : 'block' }}
+                  >
                     <div className='col-md-3'>
                       <h5 className=''>
                         <b>
@@ -341,7 +347,7 @@ function ModalDetail(props) {
 
                   <div
                     className='col-md-12 row'
-                    style={{ display: access == 'EDIT' ? 'block' : 'none' }}
+                    style={{ display: access == 'VIEW' ? 'none' : 'block' }}
                   >
                     <div className='col-md-3'>
                       <h5 className=''>
@@ -361,7 +367,10 @@ function ModalDetail(props) {
                     </div>
                   </div>
 
-                  <div className='col-md-12 row'>
+                  <div
+                    className='col-md-12 row'
+                    style={{ display: access == 'ADD' ? 'none' : 'block' }}
+                  >
                     <div className='col-md-3'>
                       <h5 className=''>
                         <b>
@@ -388,7 +397,7 @@ function ModalDetail(props) {
 
                   <div
                     className='col-md-12 row'
-                    style={{ display: access == 'EDIT' ? 'block' : 'none' }}
+                    style={{ display: access == 'VIEW' ? 'none' : 'block' }}
                   >
                     <div className='col-md-3'>
                       <h5 className=''>

@@ -146,7 +146,7 @@ function UsersTable(props) {
                   Coin
                 </div>
               ),
-              width: 100,
+              width: 150,
               id: 'coin',
               accessor: 'coin',
               filterMethod: (filter, rows) =>
@@ -160,6 +160,7 @@ function UsersTable(props) {
                 </div>
               ),
               id: 'role',
+              width: 200,
               accessor: 'role',
               Cell: ({ value }) => (value == 1 ? 'Học viên' : 'Biên tập viên'),
               filterMethod: (filter, row) => {
@@ -186,8 +187,9 @@ function UsersTable(props) {
             {
               Header: 'Status',
               id: 'status',
+              width: 200,
               accessor: 'status',
-              Cell: ({ value }) => (value ? 'Active' : 'Blook'),
+              Cell: ({ value }) => (value ? 'Hoạt động' : 'Khoá'),
               filterMethod: (filter, row) => {
                 if (filter.value === 'all') {
                   return true;
@@ -212,7 +214,7 @@ function UsersTable(props) {
             {
               Header: 'Xóa',
               id: '_id',
-
+              width: 100,
               Cell: (row) => (
                 <div style={{ textAlign: 'center', color: 'red' }}>
                   <span onClick={() => handleDelete(row)} className=''>
