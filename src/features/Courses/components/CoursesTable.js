@@ -128,6 +128,18 @@ function CoursesTable(props) {
                 matchSorter(rows, filter.value, { keys: ['teacher'] }),
               filterAll: true,
             },
+            {
+              Header: (
+                <div className='wordwrap' id='lblTeacher'>
+                  Tổng số học viên
+                </div>
+              ),
+              id: 'totalStuden',
+              width: 150,
+              accessor: 'users',
+              Cell: ({ value }) => value.length,
+              filterable: false,
+            },
 
             {
               Header: (
@@ -137,10 +149,9 @@ function CoursesTable(props) {
               ),
               id: 'totalLesson',
               width: 150,
-              accessor: 'totalLesson',
-              filterMethod: (filter, rows) =>
-                matchSorter(rows, filter.value, { keys: ['totalLesson'] }),
-              filterAll: true,
+              accessor: 'lessons',
+              Cell: ({ value }) => value.length,
+              filterable: false,
             },
             {
               Header: (

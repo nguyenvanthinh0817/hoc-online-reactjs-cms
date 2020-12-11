@@ -419,6 +419,44 @@ function ModalDetail(props) {
                   <div className='col-md-12 row'>
                     <div className='col-md-3'>
                       <h5 className=''>
+                        <b>Tổng số học viên</b>
+                      </h5>
+                    </div>
+                    <div className='col-md-9'>
+                      <input
+                        disabled={true}
+                        maxLength={255}
+                        className='form-control'
+                        type='number'
+                        placeholder={'Tổng số học viên'}
+                        id='txtPrice'
+                        value={dataGroup.users.length}
+                      />
+                    </div>
+                  </div>
+
+                  <div className='col-md-12 row'>
+                    <div className='col-md-3'>
+                      <h5 className=''>
+                        <b>Tổng số bài học</b>
+                      </h5>
+                    </div>
+                    <div className='col-md-9'>
+                      <input
+                        disabled={true}
+                        maxLength={255}
+                        className='form-control'
+                        type='number'
+                        placeholder={'Tổng số học viên'}
+                        id='txtPrice'
+                        value={dataGroup.lessons.length}
+                      />
+                    </div>
+                  </div>
+
+                  <div className='col-md-12 row'>
+                    <div className='col-md-3'>
+                      <h5 className=''>
                         <b>Giá cả</b>
                       </h5>
                     </div>
