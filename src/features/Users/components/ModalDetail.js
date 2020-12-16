@@ -181,7 +181,7 @@ function ModalDetail(props) {
                 >
                   <div className='col-md-12 row'>
                     <div className='col-md-3'>
-                      <h5 className=''>
+                      <h5 className='highlight'>
                         <b>Họ và tên</b>
                       </h5>
                     </div>
@@ -201,7 +201,7 @@ function ModalDetail(props) {
                   <div className='col-md-12 row'>
                     <div className='col-md-3'>
                       <h5 className='highlight'>
-                        <b>Username</b>
+                        <b>Tài khoản</b>
                       </h5>
                     </div>
                     <div className='col-md-9'>
@@ -210,7 +210,7 @@ function ModalDetail(props) {
                         maxLength={255}
                         className='form-control'
                         type='text'
-                        placeholder={'Username'}
+                        placeholder={'Tài khoản'}
                         id='txtUsername'
                         value={dataGroup.username}
                         onChange={(e) => onChange('username', e)}
@@ -220,7 +220,7 @@ function ModalDetail(props) {
 
                   <div className='col-md-12 row'>
                     <div className='col-md-3'>
-                      <h5 className='highlight'>
+                      <h5 className=''>
                         <b>Coin</b>
                       </h5>
                     </div>
