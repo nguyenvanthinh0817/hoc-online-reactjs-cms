@@ -6,16 +6,7 @@ import RestfulUtils from '../../../utils/RestfulUtils';
 import { toast } from 'react-toastify';
 
 function ModalDetail(props) {
-  const {
-    show = false,
-    DATA,
-    isClear,
-    change,
-    handleClose,
-    access,
-    titleModal,
-    load,
-  } = props;
+  const { show = false, DATA, isClear, change, handleClose, access, titleModal, load } = props;
 
   const [dataGroup, setDataGroup] = useState({
     _id: '',
@@ -49,7 +40,7 @@ function ModalDetail(props) {
   const submitGroup = () => {
     const data = {
       ...dataGroup,
-      coin: dataGroup.coin && access == 'ADD' ? dataGroup.coin : 2000,
+      coin: dataGroup.coin || 0,
       password: dataGroup.username,
     };
     delete data._id;
@@ -73,6 +64,7 @@ function ModalDetail(props) {
           console.log(err);
         });
     } else if (access === 'EDIT') {
+      console.log(data);
       RestfulUtils.patch('http://localhost:3030/users/' + dataGroup._id, {
         ...data,
       })
@@ -124,30 +116,18 @@ function ModalDetail(props) {
           <Modal.Body style={{ overflow: 'auto' }}>
             <div className='panel-body'>
               <div className='add-info-account'>
-                <div
-                  className={
-                    access == 'VIEW' ? 'col-md-12 disable' : 'col-md-12 '
-                  }
-                  style={{ paddingTop: '11px' }}
-                >
+                <div className={access == 'VIEW' ? 'col-md-12 disable' : 'col-md-12 '} style={{ paddingTop: '11px' }}>
                   <div className='col-md-12 row'>
                     <div className='col-md-12'>
                       <h5 className='highlight'>
                         <b>{`Bạn có chắc chắn muốn xóa ${dataGroup.name}`}</b>
                       </h5>
                     </div>
-                  </div>  
+                  </div>
 
                   <div className='col-md-12 row'>
                     <div className='pull-right'>
-                      <input
-                        type='button'
-                        onClick={submitGroup}
-                        className='btn btn-primary'
-                        style={{ marginRight: 15 }}
-                        value={'Submit'}
-                        id='btnSubmit'
-                      />
+                      <input type='button' onClick={submitGroup} className='btn btn-primary' style={{ marginRight: 15 }} value={'Submit'} id='btnSubmit' />
                     </div>
                   </div>
                 </div>
@@ -173,12 +153,7 @@ function ModalDetail(props) {
           <Modal.Body style={{ overflow: 'auto' }}>
             <div className='panel-body'>
               <div className='add-info-account'>
-                <div
-                  className={
-                    access == 'VIEW' ? 'col-md-12 disable' : 'col-md-12 '
-                  }
-                  style={{ paddingTop: '11px' }}
-                >
+                <div className={access == 'VIEW' ? 'col-md-12 disable' : 'col-md-12 '} style={{ paddingTop: '11px' }}>
                   <div className='col-md-12 row'>
                     <div className='col-md-3'>
                       <h5 className='highlight'>
@@ -244,20 +219,11 @@ function ModalDetail(props) {
                       </h5>
                     </div>
                     <div className='col-md-9'>
-                      <select
-                        className='form-control'
-                        onChange={(e) => onChange('role', e)}
-                      >
-                        <option
-                          selected={dataGroup.role == 1 ? true : false}
-                          value='1'
-                        >
+                      <select className='form-control' onChange={(e) => onChange('role', e)}>
+                        <option selected={dataGroup.role == 1 ? true : false} value='1'>
                           Học viên
                         </option>
-                        <option
-                          selected={dataGroup.role == 2 ? true : false}
-                          value='2'
-                        >
+                        <option selected={dataGroup.role == 2 ? true : false} value='2'>
                           Biên tập viên
                         </option>
                       </select>
@@ -271,20 +237,11 @@ function ModalDetail(props) {
                       </h5>
                     </div>
                     <div className='col-md-9'>
-                      <select
-                        className='form-control'
-                        onChange={(e) => onChange('status', e)}
-                      >
-                        <option
-                          selected={dataGroup.status ? true : false}
-                          value='true'
-                        >
+                      <select className='form-control' onChange={(e) => onChange('status', e)}>
+                        <option selected={dataGroup.status ? true : false} value='true'>
                           Hoạt động
                         </option>
-                        <option
-                          selected={!dataGroup.status ? true : false}
-                          value='false'
-                        >
+                        <option selected={!dataGroup.status ? true : false} value='false'>
                           Khóa
                         </option>
                       </select>
@@ -293,14 +250,7 @@ function ModalDetail(props) {
 
                   <div className='col-md-12 row'>
                     <div className='pull-right'>
-                      <input
-                        type='button'
-                        onClick={submitGroup}
-                        className='btn btn-primary'
-                        style={{ marginRight: 15 }}
-                        value={'Submit'}
-                        id='btnSubmit'
-                      />
+                      <input type='button' onClick={submitGroup} className='btn btn-primary' style={{ marginRight: 15 }} value={'Submit'} id='btnSubmit' />
                     </div>
                   </div>
                 </div>
