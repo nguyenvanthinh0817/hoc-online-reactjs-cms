@@ -56,7 +56,7 @@ function Users(props) {
       }}
       className='container panel panel-success margintopNewUI'
     >
-      <div className='title-content'>Người dùng</div>
+      <div className='title-content'>Khoá học</div>
       <div className='panel-body' style={{ padding: '10px 0' }}>
         <CoursesTable load={load} loadgrid={loadgrid} showModalDetail={showModalDetail} />
       </div>
