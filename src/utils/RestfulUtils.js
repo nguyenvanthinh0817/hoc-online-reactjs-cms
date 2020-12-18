@@ -3,9 +3,7 @@
 import axios from 'axios';
 
 const accessToken = () => {
-  return (
-    sessionStorage.getItem('accessToken') || localStorage.getItem('accessToken')
-  );
+  return sessionStorage.getItem('accessToken') || localStorage.getItem('accessToken');
 };
 
 export default {
@@ -21,7 +19,7 @@ export default {
           resolve(res);
         })
         .catch((err) => {
-          resolve(err.response.data);
+          resolve(err.response);
         });
     });
   },
@@ -37,7 +35,7 @@ export default {
           resolve(res);
         })
         .catch((err) => {
-          resolve(err.response.data);
+          resolve(err.response);
         });
     });
   },
@@ -54,7 +52,7 @@ export default {
           resolve(res);
         })
         .catch((err) => {
-          resolve(err.response.data);
+          resolve(err.response);
         });
     });
   },
@@ -70,7 +68,7 @@ export default {
           resolve(res);
         })
         .catch((err) => {
-          resolve(err.response.data);
+          resolve(err.response);
         });
     });
   },
