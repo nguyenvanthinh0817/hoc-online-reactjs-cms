@@ -1,5 +1,3 @@
-/** @format */
-
 import { matchSorter } from 'match-sorter';
 import React, { useEffect, useState } from 'react';
 import ReactTable from 'react-table-6';
@@ -10,6 +8,7 @@ function UsersTable(props) {
   const { showModalDetail, loadgrid, load } = props;
   const [data, setData] = useState([]);
   const [total, setTotal] = useState(0);
+
   const onClickRow = (state, rowInfo, column, instance) => {
     return {
       onDoubleClick: (e, t) => {
@@ -18,6 +17,7 @@ function UsersTable(props) {
       style: {},
     };
   };
+
   const handleEdit = (row) => {
     return showModalDetail('EDIT', row.row._original);
   };
