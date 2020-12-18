@@ -66,7 +66,7 @@ function LessonTable(props) {
             <span
               style={{ marginLeft: '5px' }}
               className='ReloadButton'
-              onClick={() => console.log('asdf')}
+              onClick={feedData}
             >
               <i class='fas fa-sync-alt'></i>
             </span>
