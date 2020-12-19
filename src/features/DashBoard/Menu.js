@@ -7,8 +7,7 @@ import { loginState } from '../../recoil/appState';
 
 function Menu(props) {
   const [login, setLogin] = useRecoilState(loginState);
-  const userString =
-    sessionStorage.getItem('user') || localStorage.getItem('user');
+  const userString = sessionStorage.getItem('user') || localStorage.getItem('user');
   const user = userString ? JSON.parse(userString) : '';
   const logout = () => {
     sessionStorage.removeItem('accessToken');
@@ -73,6 +72,17 @@ function Menu(props) {
                   Khóa học
                 </NavLink>
               </li>
+              <li>
+                <NavLink
+                  to='/refill-coins'
+                  activeStyle={{
+                    fontWeight: 'bold',
+                    color: 'red',
+                  }}
+                >
+                  Nạp coins
+                </NavLink>
+              </li>
             </ul>
           </div>
           <div
@@ -85,9 +95,7 @@ function Menu(props) {
               padding: '10px',
             }}
           >
-            <h5 style={{ fontWeight: 'bold', marginRight: '10px' }}>
-              {user.name}
-            </h5>
+            <h5 style={{ fontWeight: 'bold', marginRight: '10px' }}>{user.name}</h5>
             <button className='btn btn-danger' onClick={logout}>
               Đăng xuất
             </button>

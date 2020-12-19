@@ -6,13 +6,14 @@ import Menu from './Menu';
 import Users from '../Users';
 import Lesson from '../Lesson';
 import Courses from '../Courses';
+import Home from '../Home';
+import RefillCoins from '../RefillCoins';
 function DashBoard(props) {
   return (
     <div className=''>
       <Menu />
-      <h1>DashBoard</h1>
-
       <Switch>
+        <Route path='/' exact component={Home} />
         <Route path='/users' exact component={Users} />
 
         <Route exact path='/lessons'>
@@ -21,6 +22,10 @@ function DashBoard(props) {
 
         <Route exact path='/courses'>
           <Courses />
+        </Route>
+
+        <Route exact path='/refill-coins'>
+          <RefillCoins />
         </Route>
       </Switch>
     </div>

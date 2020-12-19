@@ -7,16 +7,7 @@ import { toast } from 'react-toastify';
 import Select from 'react-select';
 
 function ModalDetail(props) {
-  const {
-    show = false,
-    DATA,
-    isClear,
-    change,
-    handleClose,
-    access,
-    titleModal,
-    load,
-  } = props;
+  const { show = false, DATA, isClear, change, handleClose, access, titleModal, load } = props;
 
   const [dataGroup, setDataGroup] = useState({
     _id: '',
@@ -199,12 +190,7 @@ function ModalDetail(props) {
           <Modal.Body style={{ overflow: 'auto' }}>
             <div className='panel-body'>
               <div className='add-info-account'>
-                <div
-                  className={
-                    access == 'VIEW' ? 'col-md-12 disable' : 'col-md-12 '
-                  }
-                  style={{ paddingTop: '11px' }}
-                >
+                <div className={access == 'VIEW' ? 'col-md-12 disable' : 'col-md-12 '} style={{ paddingTop: '11px' }}>
                   <div className='col-md-12 row'>
                     <div className='col-md-12'>
                       <h5 className='highlight'>
@@ -215,14 +201,7 @@ function ModalDetail(props) {
 
                   <div className='col-md-12 row'>
                     <div className='pull-right'>
-                      <input
-                        type='button'
-                        onClick={submitGroup}
-                        className='btn btn-primary'
-                        style={{ marginRight: 15 }}
-                        value={'Submit'}
-                        id='btnSubmit'
-                      />
+                      <input type='button' onClick={submitGroup} className='btn btn-primary' style={{ marginRight: 15 }} value={'Submit'} id='btnSubmit' />
                     </div>
                   </div>
                 </div>
@@ -238,11 +217,7 @@ function ModalDetail(props) {
             <Modal.Title>
               <div className='title-content col-md-6'>
                 {titleModal}{' '}
-                <button
-                  type='button'
-                  className='close'
-                  onClick={() => handleCloses()}
-                >
+                <button type='button' className='close' onClick={() => handleCloses()}>
                   <span aria-hidden='true'>×</span>
                   <span className='sr-only'>Close</span>
                 </button>
@@ -252,12 +227,7 @@ function ModalDetail(props) {
           <Modal.Body style={{ overflow: 'auto', height: '100%' }}>
             <div className='panel-body'>
               <div className='add-info-account'>
-                <div
-                  className={
-                    access == 'VIEW' ? 'col-md-12 disable' : 'col-md-12 '
-                  }
-                  style={{ paddingTop: '11px' }}
-                >
+                <div className={access == 'VIEW' ? 'col-md-12 disable' : 'col-md-12 '} style={{ paddingTop: '11px' }}>
                   <div className='col-md-12 row'>
                     <div className='col-md-3'>
                       <h5 className='highlight'>
@@ -324,30 +294,28 @@ function ModalDetail(props) {
                       </h5>
                     </div>
                     <div className='col-md-9'>
-                      <textarea
-                        //maxLength={255}
-                        className='form-control'
-                        // placeholder={'Mô tả'}
-                        rows='4'
-                        id='txtPrice'
-                        value={dataGroup.description}
-                        onChange={(e) => onChange('description', e)}
-                      />
+                      {access == 'VIEW' ? (
+                        <div style={{ minHeight: '100px' }} className='form-control'>
+                          dataGroup.description
+                        </div>
+                      ) : (
+                        <textarea
+                          //maxLength={255}
+                          className='form-control'
+                          // placeholder={'Mô tả'}
+                          rows='4'
+                          id='txtPrice'
+                          value={dataGroup.description}
+                          onChange={(e) => onChange('description', e)}
+                        />
+                      )}
                     </div>
                   </div>
 
-                  <div
-                    className='col-md-12 row'
-                    style={{ display: access == 'ADD' ? 'none' : 'block' }}
-                  >
+                  <div className='col-md-12 row' style={{ display: access == 'ADD' ? 'none' : 'block' }}>
                     <div className='col-md-3'>
                       <h5 className=''>
-                        <b>
-                          {' '}
-                          {access == 'VIEW'
-                            ? 'Học viên'
-                            : ' Khai trừ học viên '}
-                        </b>
+                        <b> {access == 'VIEW' ? 'Học viên' : ' Khai trừ học viên '}</b>
                       </h5>
                     </div>
                     <div className='col-md-9'>
@@ -356,21 +324,14 @@ function ModalDetail(props) {
                         className='basic-multi-select'
                         classNamePrefix='select'
                         isMulti
-                        defaultValue={
-                          access == 'VIEW'
-                            ? transaction(DATA.users || [], 'username')
-                            : []
-                        }
+                        defaultValue={access == 'VIEW' ? transaction(DATA.users || [], 'username') : []}
                         options={transaction(DATA.users || [], 'username')}
                         onChange={(data) => onChangeSelect(data, setSubUsers)}
                       />
                     </div>
                   </div>
 
-                  <div
-                    className='col-md-12 row'
-                    style={{ display: access == 'VIEW' ? 'none' : 'block' }}
-                  >
+                  <div className='col-md-12 row' style={{ display: access == 'VIEW' ? 'none' : 'block' }}>
                     <div className='col-md-3'>
                       <h5 className=''>
                         <b>Thêm học viên</b>
@@ -389,15 +350,10 @@ function ModalDetail(props) {
                     </div>
                   </div>
 
-                  <div
-                    className='col-md-12 row'
-                    style={{ display: access == 'ADD' ? 'none' : 'block' }}
-                  >
+                  <div className='col-md-12 row' style={{ display: access == 'ADD' ? 'none' : 'block' }}>
                     <div className='col-md-3'>
                       <h5 className=''>
-                        <b>
-                          {access == 'VIEW' ? 'Bài học' : 'Khai trừ bài học'}
-                        </b>
+                        <b>{access == 'VIEW' ? 'Bài học' : 'Khai trừ bài học'}</b>
                       </h5>
                     </div>
                     <div className='col-md-9'>
@@ -406,21 +362,14 @@ function ModalDetail(props) {
                         className='basic-multi-select'
                         classNamePrefix='select'
                         isMulti
-                        defaultValue={
-                          access == 'VIEW'
-                            ? transaction(DATA.lessons || [], 'title')
-                            : []
-                        }
+                        defaultValue={access == 'VIEW' ? transaction(DATA.lessons || [], 'title') : []}
                         options={transaction(DATA.lessons || [], 'title')}
                         onChange={(data) => onChangeSelect(data, setSubLessons)}
                       />
                     </div>
                   </div>
 
-                  <div
-                    className='col-md-12 row'
-                    style={{ display: access == 'VIEW' ? 'none' : 'block' }}
-                  >
+                  <div className='col-md-12 row' style={{ display: access == 'VIEW' ? 'none' : 'block' }}>
                     <div className='col-md-3'>
                       <h5 className=''>
                         <b>Thêm bài học</b>
@@ -502,20 +451,11 @@ function ModalDetail(props) {
                       </h5>
                     </div>
                     <div className='col-md-9'>
-                      <select
-                        className='form-control'
-                        onChange={(e) => onChange('status', e)}
-                      >
-                        <option
-                          selected={dataGroup.status ? true : false}
-                          value='true'
-                        >
+                      <select className='form-control' onChange={(e) => onChange('status', e)}>
+                        <option selected={dataGroup.status ? true : false} value='true'>
                           Hoạt động
                         </option>
-                        <option
-                          selected={!dataGroup.status ? true : false}
-                          value='false'
-                        >
+                        <option selected={!dataGroup.status ? true : false} value='false'>
                           Khóa
                         </option>
                       </select>
@@ -524,14 +464,7 @@ function ModalDetail(props) {
 
                   <div className='col-md-12 row'>
                     <div className='pull-right'>
-                      <input
-                        type='button'
-                        onClick={submitGroup}
-                        className='btn btn-primary'
-                        style={{ marginRight: 15 }}
-                        value={'Submit'}
-                        id='btnSubmit'
-                      />
+                      <input type='button' onClick={submitGroup} className='btn btn-primary' style={{ marginRight: 15 }} value={'Submit'} id='btnSubmit' />
                     </div>
                   </div>
                 </div>
