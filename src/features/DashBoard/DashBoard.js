@@ -8,6 +8,7 @@ import Lesson from '../Lesson';
 import Courses from '../Courses';
 import Home from '../Home';
 import RefillCoins from '../RefillCoins';
+import ThongKeDoanhSo from '../ThongKeDoanhSo';
 function DashBoard(props) {
   return (
     <div className=''>
@@ -26,6 +27,10 @@ function DashBoard(props) {
 
         <Route exact path='/refill-coins'>
           <RefillCoins />
+        </Route>
+
+        <Route exact path='/thong-ke-doanh-so'>
+          <ThongKeDoanhSo />
         </Route>
       </Switch>
     </div>

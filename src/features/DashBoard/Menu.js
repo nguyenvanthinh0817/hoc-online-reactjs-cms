@@ -83,6 +83,17 @@ function Menu(props) {
                   Nạp coins
                 </NavLink>
               </li>
+              <li>
+                <NavLink
+                  to='/thong-ke-doanh-so'
+                  activeStyle={{
+                    fontWeight: 'bold',
+                    color: 'red',
+                  }}
+                >
+                  Thống kê doanh số
+                </NavLink>
+              </li>
             </ul>
           </div>
           <div
